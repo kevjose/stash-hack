@@ -22,5 +22,5 @@ app.get('/api/hacker-api', async function(req, res) {
 //   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 // });
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
