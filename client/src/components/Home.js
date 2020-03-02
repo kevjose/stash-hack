@@ -43,7 +43,7 @@ export const Home = () => {
     dispatch({
       type: 'FETCH_SONGS_REQUEST'
     });
-    fetch('//' + window.location.hostname + ':5000/api/hacker-api', {
+    fetch('//' + window.location.hostname + ':8080/api/hacker-api', {
       method: 'GET'
     })
       .then(res => {
