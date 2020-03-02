@@ -52,14 +52,12 @@ export const Home = () => {
         }
       })
       .then(resJson => {
-        console.log(resJson);
         dispatch({
           type: 'FETCH_RAMENS_SUCCESS',
           payload: resJson
         });
       })
       .catch(error => {
-        console.log(error);
         dispatch({
           type: 'FETCH_RAMENS_FAILURE'
         });
