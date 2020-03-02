@@ -1,31 +1,29 @@
 import React from 'react';
 import Table from './Table';
 
-export const SongContext = React.createContext();
-
 const initialState = {
-  songs: [],
+  ramens: [],
   isFetching: false,
   hasError: false,
-  isSongSubmitting: false,
-  songHasError: false
+  isramenSubmitting: false,
+  ramenHasError: false
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'FETCH_SONGS_REQUEST':
+    case 'FETCH_RAMENS_REQUEST':
       return {
         ...state,
         isFetching: true,
         hasError: false
       };
-    case 'FETCH_SONGS_SUCCESS':
+    case 'FETCH_RAMENS_SUCCESS':
       return {
         ...state,
         isFetching: false,
-        songs: action.payload
+        ramens: action.payload
       };
-    case 'FETCH_SONGS_FAILURE':
+    case 'FETCH_RAMENS_FAILURE':
       return {
         ...state,
         hasError: true,
@@ -41,7 +39,7 @@ export const Home = () => {
 
   React.useEffect(() => {
     dispatch({
-      type: 'FETCH_SONGS_REQUEST'
+      type: 'FETCH_RAMENS_REQUEST'
     });
     fetch('api/hacker-api', {
       method: 'GET'
@@ -56,33 +54,17 @@ export const Home = () => {
       .then(resJson => {
         console.log(resJson);
         dispatch({
-          type: 'FETCH_SONGS_SUCCESS',
+          type: 'FETCH_RAMENS_SUCCESS',
           payload: resJson
         });
       })
       .catch(error => {
         console.log(error);
         dispatch({
-          type: 'FETCH_SONGS_FAILURE'
+          type: 'FETCH_RAMENS_FAILURE'
         });
       });
   }, []);
-
-  // const handleChange = function(value) {
-  //   if (!value) {
-  //     return state.songs;
-  //   } else {
-  //     console.log(
-  //       value,
-  //       state.songs.filter(r =>
-  //         r.Brand.toLowerCase().startsWith(value.toLowerCase())
-  //       )
-  //     );
-  //     state.songs = state.songs.filter(r =>
-  //       r.Brand.toLowerCase().startsWith(value.toLowerCase())
-  //     );
-  //   }
-  // };
 
   return (
     <React.Fragment>
@@ -92,7 +74,7 @@ export const Home = () => {
         ) : state.hasError ? (
           <span className="error">AN ERROR HAS OCCURED</span>
         ) : (
-          <>{state.songs.length > 0 && <Table ramens={state.songs} />}</>
+          <>{state.ramens.length && <Table ramens={state.ramens} />}</>
         )}
       </div>
     </React.Fragment>

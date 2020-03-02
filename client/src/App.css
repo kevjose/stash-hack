@@ -168,7 +168,7 @@ strong {
 }
 /* Responsive
 ==================================== */
-@media all and (max-width: 500px) {
+@media all and (max-width: 620px) {
   .Rtable--collapse {
     display: block;
   }
@@ -188,7 +188,7 @@ strong {
 .no-flexbox .Rtable > .Rtable-cell--foot {
   margin-bottom: 1em;
 }
-@media all and (max-width: 500px) {
+@media all and (max-width: 620px) {
   .hiddenSmall {
     display: none;
   }
@@ -203,7 +203,7 @@ strong {
   flex-direction: row;
   margin-left: -3px;
 }
-@media all and (min-width: 500px) {
+@media all and (min-width: 620px) {
   .Tablist {
     display: none;
   }
@@ -257,7 +257,7 @@ strong {
   transition: background-color 0.1s;
   cursor: pointer;
 }
-@media all and (min-width: 500px) {
+@media all and (min-width: 620px) {
   .Accordion {
     display: none;
   }
@@ -278,7 +278,7 @@ strong {
 .Accordion:before {
   content: '+';
   position: absolute;
-  top: 50%;
+  top: 64%;
   left: 0.3em;
   margin-top: -1.14285714em;
   font-weight: normal;
@@ -288,6 +288,7 @@ strong {
 }
 .Accordion[aria-selected='true']:before {
   content: '-';
+  top: 60%;
 }
 .js-RtableTabs,
 .js-RtableAccordions {

@@ -7,7 +7,6 @@ export const Table = props => {
   const [searchTerm, setSearchTerm] = React.useState('');
 
   React.useEffect(() => {
-    console.log('sknfks', searchTerm);
     let results = [];
     if (!searchTerm) {
       results = props.ramens;
@@ -17,11 +16,9 @@ export const Table = props => {
       );
     }
     setSearchResults(results);
-    console.log(searchResults);
   }, [searchTerm]);
 
   function handleChange(e) {
-    console.log('setSearchTerm', e.target.value);
     setSearchTerm(e.target.value);
   }
 
@@ -33,7 +30,6 @@ export const Table = props => {
       let target = e.target.nextSibling;
       while (target && target.tagName.toLowerCase() !== 'button') {
         if (currentAriaChecked && target.classList.contains('Rtable-cell')) {
-          console.log('adding hidden');
           target.classList.add('hiddenSmall');
         } else {
           target.classList.remove('hiddenSmall');
@@ -75,7 +71,7 @@ export const Table = props => {
         <div className={`Rtable-cell  Rtable-cell--head hiddenSmall`}>
           Top Ten
         </div>
-        {searchResults && searchResults.length == 0 && (
+        {searchResults && searchResults.length === 0 && (
           <div>
             <br />
             <h3>No results found! &nbsp;</h3>
