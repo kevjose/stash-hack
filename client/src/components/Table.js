@@ -31,7 +31,7 @@ export const Table = props => {
         e.target.getAttribute('aria-selected') === 'true';
 
       let target = e.target.nextSibling;
-      while (target.tagName.toLowerCase() !== 'button') {
+      while (target && target.tagName.toLowerCase() !== 'button') {
         if (currentAriaChecked && target.classList.contains('Rtable-cell')) {
           console.log('adding hidden');
           target.classList.add('hiddenSmall');
@@ -75,6 +75,12 @@ export const Table = props => {
         <div className={`Rtable-cell  Rtable-cell--head hiddenSmall`}>
           Top Ten
         </div>
+        {searchResults && searchResults.length == 0 && (
+          <div>
+            <br />
+            <h3>No results found! &nbsp;</h3>
+          </div>
+        )}
         {searchResults &&
           searchResults.length &&
           searchResults.map((ramen, i) => {
