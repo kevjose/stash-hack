@@ -25,3 +25,7 @@ npm run dev
 ```
 
 - the above will open a browser on port 3000
+
+- demo view
+
+![](stash-hack-v1.gif)
